@@ -7,6 +7,27 @@ type Props = {
   params: Promise<{ slug: string[] }>;
 };
 
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+
+  return {
+    title: `${slug[0]} notes`,
+    description: `List of your notes filtered by tag ${slug[0]}. Ability to view, edit and delete notes. Create a new note`,
+    openGraph: {
+      title: `${slug[0]} notes`,
+      description: `List of your notes filtered by tag ${slug[0]}. Ability to view, edit and delete notes. Create a new note`,
+      url: `https://08-zustand-blue.vercel.app/notes/filter/${slug[0]}`,
+      images: [
+        {
+          url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+          width: 1200,
+          height: 630,
+          alt: `${slug[0]} notes`,
+        },
+      ],
+    },
+  };
+}
 export default async function Notes({ params }: Props) {
   const { slug } = await params;
   const tagNote = slug[0] === 'All' ? '' : slug[0];
