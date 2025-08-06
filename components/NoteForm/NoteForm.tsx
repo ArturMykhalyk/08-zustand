@@ -1,7 +1,7 @@
 'use client';
 import css from './NoteForm.module.css';
 import { useId, useState } from 'react';
-import { useNoteDraftStore } from '@/lib/stores/noteStore';
+import { useNoteDraftStore } from '@/lib/store/noteStore';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
