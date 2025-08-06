@@ -1,4 +1,4 @@
-import { FormValues, Note } from "@/types/note";
+import { NewNoteData, Note } from "@/types/note";
 import axios from "axios";
 
 
@@ -25,7 +25,7 @@ export const fetchNotes = async (search: string, page:number,tag:string): Promis
     return response.data;
 }
 
-export const createNote = async (note: FormValues):Promise<Note> => {
+export const createNote = async (note:  NewNoteData):Promise<Note> => {
     const headers = {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
       'Content-Type': 'application/json',

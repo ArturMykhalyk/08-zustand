@@ -8,7 +8,7 @@ export interface Note {
  }
 type NoteTag = "Todo"|"Work"|"Personal"|"Meeting"|"Shopping";
 
-export interface FormValues{
+export interface  NewNoteData {
     title: string;
     content?: string;
     tag: NoteTag;
